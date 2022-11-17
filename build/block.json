@@ -11,6 +11,10 @@
     "rating": {
       "type": "number",
       "default": 3.5
+    },
+    "maxRating": {
+      "type": "number",
+      "default": 5
     }
   },
   "supports": {

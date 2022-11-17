@@ -41,12 +41,13 @@ export default function Edit( {
 } ) {
 	const {
 		rating,
+		maxRating,
 	} = attributes;
 
 	const blockProps = useBlockProps();
 
 	let stars = [];
-    for ( let i = 0; i < 5; i++ ) {
+    for ( let i = 0; i < maxRating; i++ ) {
 		
 		// Start with full stars.
 		if ( i < Math.floor( rating ) ) {
@@ -87,10 +88,19 @@ export default function Edit( {
 						label={ __( 'Rating', 'themezee-star-rating-block' ) }
 						value={ rating }
 						min={ 0 }
-						max={ 5 }
+						max={ maxRating }
 						step={ 0.5 }
 						withInputField={ true }
 						onChange={ ( value ) => setAttributes( { rating: value } ) }
+					/>
+					<RangeControl
+						label={ __( 'Maximum rating score', 'themezee-star-rating-block' ) }
+						value={ maxRating }
+						min={ 0 }
+						max={ 25 }
+						step={ 1 }
+						withInputField={ true }
+						onChange={ ( value ) => setAttributes( { maxRating: value } ) }
 					/>
 				</PanelBody>
 			</InspectorControls>

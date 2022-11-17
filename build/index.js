@@ -187,11 +187,12 @@ function Edit(_ref) {
     setAttributes
   } = _ref;
   const {
-    rating
+    rating,
+    maxRating
   } = attributes;
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)();
   let stars = [];
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < maxRating; i++) {
     // Start with full stars.
     if (i < Math.floor(rating)) {
       stars.push((0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_icons__WEBPACK_IMPORTED_MODULE_5__["default"], {
@@ -223,11 +224,21 @@ function Edit(_ref) {
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Rating', 'themezee-star-rating-block'),
     value: rating,
     min: 0,
-    max: 5,
+    max: maxRating,
     step: 0.5,
     withInputField: true,
     onChange: value => setAttributes({
       rating: value
+    })
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.RangeControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Maximum rating score', 'themezee-star-rating-block'),
+    value: maxRating,
+    min: 0,
+    max: 25,
+    step: 1,
+    withInputField: true,
+    onChange: value => setAttributes({
+      maxRating: value
     })
   }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", blockProps, stars.map(star => star)));
 }
@@ -416,7 +427,7 @@ module.exports = window["wp"]["primitives"];
   \************************/
 /***/ (function(module) {
 
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"themezee/star-rating","version":"1.0","title":"Star Rating","category":"themezee-blocks","description":"Rate something with one to five stars.","textdomain":"themezee-star-rating-block","attributes":{"rating":{"type":"number","default":3.5}},"supports":{"html":false},"editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"themezee/star-rating","version":"1.0","title":"Star Rating","category":"themezee-blocks","description":"Rate something with one to five stars.","textdomain":"themezee-star-rating-block","attributes":{"rating":{"type":"number","default":3.5},"maxRating":{"type":"number","default":5}},"supports":{"html":false},"editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
 
 /***/ })
 
