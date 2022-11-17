@@ -12,6 +12,7 @@ import {
 	useBlockProps,
 } from '@wordpress/block-editor';
 import {
+	Button,
 	PanelBody,
 	RangeControl,
 } from '@wordpress/components';
@@ -48,13 +49,23 @@ export default function Edit( {
 
 	let stars = [];
     for ( let i = 0; i < maxRating; i++ ) {
-		
+
 		// Start with full stars.
 		if ( i < Math.floor( rating ) ) {
 			stars.push(
-				<Icon
+				<Button
 					key={ i }
+					isTertiary
 					icon={ starFilled }
+					label={ __( 'Update Rating', 'themezee-star-rating-block' ) }
+					onClick={ () => {
+						// Check if the current rating was clicked => then change full to half star.
+						if ( i + 1 === rating ) {
+							setAttributes( { rating: i + 0.5 } );
+						} else {
+							setAttributes( { rating: i + 1 } );
+						}
+					} }
 				/>
 			);
 		}
@@ -62,9 +73,12 @@ export default function Edit( {
 		// Check for half stars.
 		else if ( i === Math.floor( rating ) && rating % 1 !== 0 ) {
 			stars.push(
-				<Icon
+				<Button
 					key={ i }
+					isTertiary
 					icon={ starHalf }
+					label={ __( 'Update Rating', 'themezee-star-rating-block' ) }
+					onClick={ () => setAttributes( { rating: i } ) }
 				/>
 			);
 		}
@@ -72,9 +86,12 @@ export default function Edit( {
 		// Fill up with empty stars.
 		else {
 			stars.push(
-				<Icon
+				<Button
 					key={ i }
+					isTertiary
 					icon={ starEmpty }
+					label={ __( 'Update Rating', 'themezee-star-rating-block' ) }
+					onClick={ () => setAttributes( { rating: i + 1 } ) }
 				/>
 			);
 		}
