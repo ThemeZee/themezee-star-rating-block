@@ -56,8 +56,6 @@ export default function Edit( {
 				<Button
 					key={ i }
 					isTertiary
-					icon={ starFilled }
-					label={ __( 'Update Rating', 'themezee-star-rating-block' ) }
 					onClick={ () => {
 						// Check if the current rating was clicked => then change full to half star.
 						if ( i + 1 === rating ) {
@@ -66,7 +64,11 @@ export default function Edit( {
 							setAttributes( { rating: i + 1 } );
 						}
 					} }
-				/>
+				>
+					<span className={ `star star-${ i + 1 }` }>
+						<Icon icon={ starFilled } />
+					</span>
+				</Button>
 			);
 		}
 
@@ -76,10 +78,12 @@ export default function Edit( {
 				<Button
 					key={ i }
 					isTertiary
-					icon={ starHalf }
-					label={ __( 'Update Rating', 'themezee-star-rating-block' ) }
 					onClick={ () => setAttributes( { rating: i } ) }
-				/>
+				>
+					<span className={ `star star-${ i + 1 }` }>
+						<Icon icon={ starHalf } />
+					</span>
+				</Button>
 			);
 		}
 
@@ -89,10 +93,12 @@ export default function Edit( {
 				<Button
 					key={ i }
 					isTertiary
-					icon={ starEmpty }
-					label={ __( 'Update Rating', 'themezee-star-rating-block' ) }
 					onClick={ () => setAttributes( { rating: i + 1 } ) }
-				/>
+				>
+					<span className={ `star star-${ i + 1 }` }>
+						<Icon icon={ starEmpty } />
+					</span>
+				</Button>
 			);
 		}
     }

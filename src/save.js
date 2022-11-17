@@ -62,7 +62,13 @@ export default function save( { attributes } ) {
 
 	return (
 		<div { ...blockProps }>
-			{ stars.map( ( star ) => star ) }
+			{ stars.map( ( icon, i ) => {
+				return (
+					<span className={ `star star-${ i + 1 }` }>
+						{ icon }
+					</span>
+				);
+			} ) }
 		</div>
 	);
 }

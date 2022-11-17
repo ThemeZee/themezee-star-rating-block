@@ -149,9 +149,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/star-filled.js");
-/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/star-half.js");
-/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/star-empty.js");
+/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/icon/index.js");
+/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/star-filled.js");
+/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/star-half.js");
+/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/star-empty.js");
 /* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./editor.scss */ "./src/editor.scss");
 
 /**
@@ -197,8 +198,6 @@ function Edit(_ref) {
       stars.push((0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
         key: i,
         isTertiary: true,
-        icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_5__["default"],
-        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Update Rating', 'themezee-star-rating-block'),
         onClick: () => {
           // Check if the current rating was clicked => then change full to half star.
           if (i + 1 === rating) {
@@ -211,7 +210,11 @@ function Edit(_ref) {
             });
           }
         }
-      }));
+      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+        className: `star star-${i + 1}`
+      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_icons__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_6__["default"]
+      }))));
     }
 
     // Check for half stars.
@@ -219,12 +222,14 @@ function Edit(_ref) {
       stars.push((0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
         key: i,
         isTertiary: true,
-        icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_6__["default"],
-        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Update Rating', 'themezee-star-rating-block'),
         onClick: () => setAttributes({
           rating: i
         })
-      }));
+      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+        className: `star star-${i + 1}`
+      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_icons__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_7__["default"]
+      }))));
     }
 
     // Fill up with empty stars.
@@ -232,12 +237,14 @@ function Edit(_ref) {
       stars.push((0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
         key: i,
         isTertiary: true,
-        icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_7__["default"],
-        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Update Rating', 'themezee-star-rating-block'),
         onClick: () => setAttributes({
           rating: i + 1
         })
-      }));
+      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+        className: `star star-${i + 1}`
+      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_icons__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_8__["default"]
+      }))));
     }
   }
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
@@ -391,7 +398,11 @@ function save(_ref) {
       }));
     }
   }
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", blockProps, stars.map(star => star));
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", blockProps, stars.map((icon, i) => {
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+      className: `star star-${i + 1}`
+    }, icon);
+  }));
 }
 
 /***/ }),
