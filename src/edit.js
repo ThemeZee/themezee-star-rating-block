@@ -40,6 +40,7 @@ import './editor.scss';
  */
 export default function Edit( {
 	attributes,
+	isSelected,
 	setAttributes,
 } ) {
 	const {
@@ -74,7 +75,7 @@ export default function Edit( {
 			stars.push(
 				<Button
 					key={ i }
-					isTertiary
+					className="themezee-components-star-icon-button"
 					onClick={ () => {
 						// Check if the current rating was clicked => then change full to half star.
 						if ( i + 1 === rating ) {
@@ -96,7 +97,7 @@ export default function Edit( {
 			stars.push(
 				<Button
 					key={ i }
-					isTertiary
+					className="themezee-components-star-icon-button"
 					onClick={ () => setAttributes( { rating: i } ) }
 				>
 					<span className={ `star star-${ i + 1 }` } style={ iconStyles }>
@@ -111,7 +112,7 @@ export default function Edit( {
 			stars.push(
 				<Button
 					key={ i }
-					isTertiary
+					className="themezee-components-star-icon-button"
 					onClick={ () => setAttributes( { rating: i + 1 } ) }
 				>
 					<span className={ `star star-${ i + 1 }` } style={ iconStyles }>

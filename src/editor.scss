@@ -1,9 +1,25 @@
-/**
- * The following styles get applied inside the editor only.
- *
- * Replace them with your own styles or remove the file completely.
- */
+.wp-block-themezee-star-rating {
+	.themezee-components-star-icon-button {
+		margin: 0;
+		padding: 0;
+		border: none;
+		color: inherit;
+		background: inherit;
+		font: inherit;
+		height: auto;
+		border-radius: 0;
+		box-shadow: none;
+		transition: none;
 
-.wp-block-create-block-themezee-star-rating-block {
-	border: 1px dotted #f00;
+		&:hover,
+		&:active,
+		&:focus {
+			color: inherit;
+			box-shadow: none;
+		}
+
+		&:disabled {
+			opacity: 1;
+		}
+	}
 }

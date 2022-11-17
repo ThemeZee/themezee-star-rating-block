@@ -186,6 +186,7 @@ __webpack_require__.r(__webpack_exports__);
 function Edit(_ref) {
   let {
     attributes,
+    isSelected,
     setAttributes
   } = _ref;
   const {
@@ -214,7 +215,7 @@ function Edit(_ref) {
     if (i < Math.floor(rating)) {
       stars.push((0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
         key: i,
-        isTertiary: true,
+        className: "themezee-components-star-icon-button",
         onClick: () => {
           // Check if the current rating was clicked => then change full to half star.
           if (i + 1 === rating) {
@@ -239,7 +240,7 @@ function Edit(_ref) {
     else if (i === Math.floor(rating) && rating % 1 !== 0) {
       stars.push((0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
         key: i,
-        isTertiary: true,
+        className: "themezee-components-star-icon-button",
         onClick: () => setAttributes({
           rating: i
         })
@@ -255,7 +256,7 @@ function Edit(_ref) {
     else {
       stars.push((0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
         key: i,
-        isTertiary: true,
+        className: "themezee-components-star-icon-button",
         onClick: () => setAttributes({
           rating: i + 1
         })
