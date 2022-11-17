@@ -665,7 +665,7 @@ function _extends() {
   \************************/
 /***/ (function(module) {
 
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"themezee/star-rating","version":"1.0","title":"Star Rating","category":"themezee-blocks","description":"Rate something with one to five stars.","textdomain":"themezee-star-rating-block","attributes":{"rating":{"type":"number","default":3.5},"maxRating":{"type":"number","default":5},"iconSize":{"type":"string","default":"32px"}},"supports":{"html":false},"editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"themezee/star-rating","version":"1.0","title":"Star Rating","category":"themezee-blocks","description":"Rate something with one to five stars.","textdomain":"themezee-star-rating-block","attributes":{"rating":{"type":"number","default":3.5},"maxRating":{"type":"number","default":5},"iconSize":{"type":"string","default":"32px"}},"supports":{"align":["wide","full"],"html":false,"color":{"gradients":true,"__experimentalDefaultControls":{"text":true,"background":true}},"spacing":{"margin":true,"padding":true},"__experimentalBorder":{"color":true,"style":true,"width":true,"radius":true}},"editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
 
 /***/ })
 
