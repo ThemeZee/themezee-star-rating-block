@@ -1,23 +1,23 @@
 /**
- * Retrieves the translation of text.
- *
- * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-i18n/
+ * External dependencies
+ */
+//import classnames from 'classnames';
+
+/**
+ * WordPress dependencies
  */
 import { __ } from '@wordpress/i18n';
+import {
+	InspectorControls,
+	useBlockProps,
+} from '@wordpress/block-editor';
+import {
+	PanelBody,
+	RangeControl,
+} from '@wordpress/components';
 
 /**
- * React hook that is used to mark the block wrapper element.
- * It provides all the necessary props like the class name.
- *
- * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
- */
-import { useBlockProps } from '@wordpress/block-editor';
-
-/**
- * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
- * Those files can contain any CSS code that gets applied to the editor.
- *
- * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
+ * Internal dependencies
  */
 import './editor.scss';
 
@@ -29,13 +29,37 @@ import './editor.scss';
  *
  * @return {WPElement} Element to render.
  */
-export default function Edit() {
+export default function Edit( {
+	attributes,
+	setAttributes,
+} ) {
+	const {
+		rating,
+	} = attributes;
+
+	const blockProps = useBlockProps();
+
+	console.log( rating );
+
 	return (
-		<p { ...useBlockProps() }>
-			{ __(
-				'Themezee Star Rating Block – hello from the editor!',
-				'themezee-star-rating-block'
-			) }
-		</p>
+		<>
+			<InspectorControls>
+				<PanelBody title={ __( 'Settings', 'themezee-star-rating-block' ) } initialOpen={ true }>
+					<RangeControl
+						label={ __( 'Rating', 'themezee-star-rating-block' ) }
+						value={ rating }
+						min={ 0 }
+						max={ 5 }
+						step={ 0.5 }
+						withInputField={ true }
+						onChange={ ( value ) => setAttributes( { rating: value } ) }
+					/>
+				</PanelBody>
+			</InspectorControls>
+
+			<div { ...blockProps }>
+				{ rating }
+			</div>
+		</>
 	);
 }

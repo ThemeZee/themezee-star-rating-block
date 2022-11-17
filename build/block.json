@@ -7,6 +7,12 @@
   "category": "themezee-blocks",
   "description": "Rate something with one to five stars.",
   "textdomain": "themezee-star-rating-block",
+  "attributes": {
+    "rating": {
+      "type": "number",
+      "default": 3.5
+    }
+  },
   "supports": {
     "html": false
   },
