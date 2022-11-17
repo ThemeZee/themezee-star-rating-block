@@ -49,6 +49,17 @@ export default function Edit( {
 		iconSize,
 	} = attributes;
 
+	const onClickStarButton = ( currentRating, starClicked ) => {
+		// Check if the current rating was clicked again => then go down 0.5 in rating.
+		if ( starClicked === Math.ceil( currentRating ) ) {
+			setAttributes( { rating: currentRating - 0.5 } );
+		}
+		// Otherwise set rating to the star that was clicked.
+		else {
+			setAttributes( { rating: starClicked } );
+		}
+	};
+
 	const units = useCustomUnits( {
 		availableUnits: [
 			'px',
@@ -67,61 +78,29 @@ export default function Edit( {
 		height: iconSize,
 	};
 
-	let stars = [];
+	// Create star icons array.
+	let icons = [];
     for ( let i = 0; i < maxRating; i++ ) {
-
 		// Start with full stars.
 		if ( i < Math.floor( rating ) ) {
-			stars.push(
-				<Button
-					key={ i }
-					className="themezee-components-star-icon-button"
-					onClick={ () => {
-						// Check if the current rating was clicked => then change full to half star.
-						if ( i + 1 === rating ) {
-							setAttributes( { rating: i + 0.5 } );
-						} else {
-							setAttributes( { rating: i + 1 } );
-						}
-					} }
-				>
-					<span className={ `star star-${ i + 1 }` } style={ iconStyles }>
-						<Icon icon={ starFilled } />
-					</span>
-				</Button>
-			);
+			icons.push( starFilled );
 		}
-
 		// Check for half stars.
 		else if ( i === Math.floor( rating ) && rating % 1 !== 0 ) {
-			stars.push(
-				<Button
-					key={ i }
-					className="themezee-components-star-icon-button"
-					onClick={ () => setAttributes( { rating: i } ) }
-				>
-					<span className={ `star star-${ i + 1 }` } style={ iconStyles }>
-						<Icon icon={ starHalf } />
-					</span>
-				</Button>
-			);
+			icons.push( starHalf );
 		}
-
 		// Fill up with empty stars.
 		else {
-			stars.push(
-				<Button
-					key={ i }
-					className="themezee-components-star-icon-button"
-					onClick={ () => setAttributes( { rating: i + 1 } ) }
-				>
-					<span className={ `star star-${ i + 1 }` } style={ iconStyles }>
-						<Icon icon={ starEmpty } />
-					</span>
-				</Button>
-			);
+			icons.push( starEmpty );
 		}
-    }
+	}
+
+	// Wrap each star icon with span tag and add styles.
+	const stars = icons.map( ( icon, i ) => (
+		<span className={ `star star-${ i + 1 }` } style={ iconStyles }>
+			<Icon key={ i } icon={ icon } />
+		</span>
+	) );
 
 	return (
 		<>
@@ -162,7 +141,18 @@ export default function Edit( {
 			</InspectorControls>
 
 			<div { ...blockProps }>
-				{ stars.map( ( star ) => star ) }
+				{ ! isSelected && stars.map( ( star ) => star ) }
+				
+				{ isSelected && stars.map( ( star, i ) => (
+					<Button
+						key={ i }
+						className="themezee-components-star-icon-button"
+						onClick={ () => onClickStarButton( rating, i + 1 ) }
+					>
+						{ star }
+					</Button>
+				) ) }
+
 			</div>
 		</>
 	);

@@ -32,49 +32,33 @@ export default function save( { attributes } ) {
 		height: iconSize,
 	};
 
-	let stars = [];
-    for ( let i = 0; i < maxRating; i++ ) {
-		
+	// Create star icons array.
+	let icons = [];
+	for ( let i = 0; i < maxRating; i++ ) {
 		// Start with full stars.
 		if ( i < Math.floor( rating ) ) {
-			stars.push(
-				<Icon
-					key={ i }
-					icon={ starFilled }
-				/>
-			);
+			icons.push( starFilled );
 		}
-
 		// Check for half stars.
 		else if ( i === Math.floor( rating ) && rating % 1 !== 0 ) {
-			stars.push(
-				<Icon
-					key={ i }
-					icon={ starHalf }
-				/>
-			);
+			icons.push( starHalf );
 		}
-
 		// Fill up with empty stars.
 		else {
-			stars.push(
-				<Icon
-					key={ i }
-					icon={ starEmpty }
-				/>
-			);
+			icons.push( starEmpty );
 		}
-    }
+	}
+
+	// Wrap each star icon with span tag and add styles.
+	const stars = icons.map( ( icon, i ) => (
+		<span className={ `star star-${ i + 1 }` } style={ iconStyles }>
+			<Icon key={ i } icon={ icon } />
+		</span>
+	) );
 
 	return (
 		<div { ...blockProps }>
-			{ stars.map( ( icon, i ) => {
-				return (
-					<span className={ `star star-${ i + 1 }` } style={ iconStyles }>
-						{ icon }
-					</span>
-				);
-			} ) }
+			{ stars.map( ( star ) => star ) }
 		</div>
 	);
 }

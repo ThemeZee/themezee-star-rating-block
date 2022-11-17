@@ -149,10 +149,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/icon/index.js");
-/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/star-filled.js");
-/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/star-half.js");
-/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/star-empty.js");
+/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/star-filled.js");
+/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/star-half.js");
+/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/star-empty.js");
+/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/icon/index.js");
 /* harmony import */ var _unit_range_control__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./unit-range-control */ "./src/unit-range-control/index.js");
 /* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./editor.scss */ "./src/editor.scss");
 
@@ -194,6 +194,20 @@ function Edit(_ref) {
     maxRating,
     iconSize
   } = attributes;
+  const onClickStarButton = (currentRating, starClicked) => {
+    // Check if the current rating was clicked again => then go down 0.5 in rating.
+    if (starClicked === Math.ceil(currentRating)) {
+      setAttributes({
+        rating: currentRating - 0.5
+      });
+    }
+    // Otherwise set rating to the star that was clicked.
+    else {
+      setAttributes({
+        rating: starClicked
+      });
+    }
+  };
   const units = (0,_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.__experimentalUseCustomUnits)({
     availableUnits: ['px', 'em', 'rem', 'vw', 'vh'],
     defaultValues: {
@@ -209,65 +223,32 @@ function Edit(_ref) {
     width: iconSize,
     height: iconSize
   };
-  let stars = [];
+
+  // Create star icons array.
+  let icons = [];
   for (let i = 0; i < maxRating; i++) {
     // Start with full stars.
     if (i < Math.floor(rating)) {
-      stars.push((0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
-        key: i,
-        className: "themezee-components-star-icon-button",
-        onClick: () => {
-          // Check if the current rating was clicked => then change full to half star.
-          if (i + 1 === rating) {
-            setAttributes({
-              rating: i + 0.5
-            });
-          } else {
-            setAttributes({
-              rating: i + 1
-            });
-          }
-        }
-      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
-        className: `star star-${i + 1}`,
-        style: iconStyles
-      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_icons__WEBPACK_IMPORTED_MODULE_6__["default"], {
-        icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_7__["default"]
-      }))));
+      icons.push(_wordpress_icons__WEBPACK_IMPORTED_MODULE_6__["default"]);
     }
-
     // Check for half stars.
     else if (i === Math.floor(rating) && rating % 1 !== 0) {
-      stars.push((0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
-        key: i,
-        className: "themezee-components-star-icon-button",
-        onClick: () => setAttributes({
-          rating: i
-        })
-      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
-        className: `star star-${i + 1}`,
-        style: iconStyles
-      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_icons__WEBPACK_IMPORTED_MODULE_6__["default"], {
-        icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_8__["default"]
-      }))));
+      icons.push(_wordpress_icons__WEBPACK_IMPORTED_MODULE_7__["default"]);
     }
-
     // Fill up with empty stars.
     else {
-      stars.push((0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
-        key: i,
-        className: "themezee-components-star-icon-button",
-        onClick: () => setAttributes({
-          rating: i + 1
-        })
-      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
-        className: `star star-${i + 1}`,
-        style: iconStyles
-      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_icons__WEBPACK_IMPORTED_MODULE_6__["default"], {
-        icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_9__["default"]
-      }))));
+      icons.push(_wordpress_icons__WEBPACK_IMPORTED_MODULE_8__["default"]);
     }
   }
+
+  // Wrap each star icon with span tag and add styles.
+  const stars = icons.map((icon, i) => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+    className: `star star-${i + 1}`,
+    style: iconStyles
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_icons__WEBPACK_IMPORTED_MODULE_9__["default"], {
+    key: i,
+    icon: icon
+  })));
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
     title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Settings', 'themezee-star-rating-block'),
     initialOpen: true
@@ -305,7 +286,11 @@ function Edit(_ref) {
       'vw': 15,
       'vh': 15
     }
-  }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", blockProps, stars.map(star => star)));
+  }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", blockProps, !isSelected && stars.map(star => star), isSelected && stars.map((star, i) => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
+    key: i,
+    className: "themezee-components-star-icon-button",
+    onClick: () => onClickStarButton(rating, i + 1)
+  }, star))));
 }
 
 /***/ }),
@@ -378,10 +363,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/icon/index.js");
-/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/star-filled.js");
-/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/star-half.js");
-/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/star-empty.js");
+/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/star-filled.js");
+/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/star-half.js");
+/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/star-empty.js");
+/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/icon/index.js");
 
 /**
  * WordPress dependencies
@@ -412,38 +397,33 @@ function save(_ref) {
     width: iconSize,
     height: iconSize
   };
-  let stars = [];
+
+  // Create star icons array.
+  let icons = [];
   for (let i = 0; i < maxRating; i++) {
     // Start with full stars.
     if (i < Math.floor(rating)) {
-      stars.push((0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_icons__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        key: i,
-        icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_3__["default"]
-      }));
+      icons.push(_wordpress_icons__WEBPACK_IMPORTED_MODULE_2__["default"]);
     }
-
     // Check for half stars.
     else if (i === Math.floor(rating) && rating % 1 !== 0) {
-      stars.push((0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_icons__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        key: i,
-        icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_4__["default"]
-      }));
+      icons.push(_wordpress_icons__WEBPACK_IMPORTED_MODULE_3__["default"]);
     }
-
     // Fill up with empty stars.
     else {
-      stars.push((0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_icons__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        key: i,
-        icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_5__["default"]
-      }));
+      icons.push(_wordpress_icons__WEBPACK_IMPORTED_MODULE_4__["default"]);
     }
   }
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", blockProps, stars.map((icon, i) => {
-    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
-      className: `star star-${i + 1}`,
-      style: iconStyles
-    }, icon);
-  }));
+
+  // Wrap each star icon with span tag and add styles.
+  const stars = icons.map((icon, i) => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+    className: `star star-${i + 1}`,
+    style: iconStyles
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_icons__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    key: i,
+    icon: icon
+  })));
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", blockProps, stars.map(star => star));
 }
 
 /***/ }),
