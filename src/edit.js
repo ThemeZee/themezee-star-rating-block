@@ -15,6 +15,12 @@ import {
 	PanelBody,
 	RangeControl,
 } from '@wordpress/components';
+import {
+	Icon,
+	starEmpty,
+	starHalf,
+	starFilled,
+} from '@wordpress/icons';
 
 /**
  * Internal dependencies
@@ -39,7 +45,39 @@ export default function Edit( {
 
 	const blockProps = useBlockProps();
 
-	console.log( rating );
+	let stars = [];
+    for ( let i = 0; i < 5; i++ ) {
+		
+		// Start with full stars.
+		if ( i < Math.floor( rating ) ) {
+			stars.push(
+				<Icon
+					key={ i }
+					icon={ starFilled }
+				/>
+			);
+		}
+
+		// Check for half stars.
+		else if ( i === Math.floor( rating ) && rating % 1 !== 0 ) {
+			stars.push(
+				<Icon
+					key={ i }
+					icon={ starHalf }
+				/>
+			);
+		}
+
+		// Fill up with empty stars.
+		else {
+			stars.push(
+				<Icon
+					key={ i }
+					icon={ starEmpty }
+				/>
+			);
+		}
+    }
 
 	return (
 		<>
@@ -58,7 +96,7 @@ export default function Edit( {
 			</InspectorControls>
 
 			<div { ...blockProps }>
-				{ rating }
+				{ stars.map( ( star ) => star ) }
 			</div>
 		</>
 	);
