@@ -15,6 +15,7 @@ import {
 	Button,
 	PanelBody,
 	RangeControl,
+	__experimentalUseCustomUnits as useCustomUnits,
 } from '@wordpress/components';
 import {
 	Icon,
@@ -26,6 +27,7 @@ import {
 /**
  * Internal dependencies
  */
+import UnitRangeControl from './unit-range-control';
 import './editor.scss';
 
 /**
@@ -43,9 +45,26 @@ export default function Edit( {
 	const {
 		rating,
 		maxRating,
+		iconSize,
 	} = attributes;
 
+	const units = useCustomUnits( {
+		availableUnits: [
+			'px',
+			'em',
+			'rem',
+			'vw',
+			'vh',
+		],
+		defaultValues: { px: 32, em: 2, rem: 2, vw: 2, vh: 4 },
+	} );
+
 	const blockProps = useBlockProps();
+
+	const iconStyles = {
+		width: iconSize,
+		height: iconSize,
+	};
 
 	let stars = [];
     for ( let i = 0; i < maxRating; i++ ) {
@@ -65,7 +84,7 @@ export default function Edit( {
 						}
 					} }
 				>
-					<span className={ `star star-${ i + 1 }` }>
+					<span className={ `star star-${ i + 1 }` } style={ iconStyles }>
 						<Icon icon={ starFilled } />
 					</span>
 				</Button>
@@ -80,7 +99,7 @@ export default function Edit( {
 					isTertiary
 					onClick={ () => setAttributes( { rating: i } ) }
 				>
-					<span className={ `star star-${ i + 1 }` }>
+					<span className={ `star star-${ i + 1 }` } style={ iconStyles }>
 						<Icon icon={ starHalf } />
 					</span>
 				</Button>
@@ -95,7 +114,7 @@ export default function Edit( {
 					isTertiary
 					onClick={ () => setAttributes( { rating: i + 1 } ) }
 				>
-					<span className={ `star star-${ i + 1 }` }>
+					<span className={ `star star-${ i + 1 }` } style={ iconStyles }>
 						<Icon icon={ starEmpty } />
 					</span>
 				</Button>
@@ -124,6 +143,19 @@ export default function Edit( {
 						step={ 1 }
 						withInputField={ true }
 						onChange={ ( value ) => setAttributes( { maxRating: value } ) }
+					/>
+					<UnitRangeControl
+						label={ __( 'Icon size', 'themezee-star-rating-block' ) }
+						value={ iconSize }
+						onChange={ ( value ) => setAttributes( { iconSize: value} ) }
+						units = { units }
+						max = { {
+							'px': 240,
+							'em': 15,
+							'rem': 15,
+							'vw': 15,
+							'vh': 15,
+						} }
 					/>
 				</PanelBody>
 			</InspectorControls>

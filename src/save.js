@@ -22,9 +22,15 @@ export default function save( { attributes } ) {
 	const {
 		rating,
 		maxRating,
+		iconSize,
 	} = attributes;
 
 	const blockProps = useBlockProps.save();
+
+	const iconStyles = {
+		width: iconSize,
+		height: iconSize,
+	};
 
 	let stars = [];
     for ( let i = 0; i < maxRating; i++ ) {
@@ -64,7 +70,7 @@ export default function save( { attributes } ) {
 		<div { ...blockProps }>
 			{ stars.map( ( icon, i ) => {
 				return (
-					<span className={ `star star-${ i + 1 }` }>
+					<span className={ `star star-${ i + 1 }` } style={ iconStyles }>
 						{ icon }
 					</span>
 				);
