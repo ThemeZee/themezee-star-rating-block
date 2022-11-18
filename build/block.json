@@ -19,6 +19,9 @@
     "iconSize": {
       "type": "string",
       "default": "32px"
+    },
+    "justification": {
+      "type": "string"
     }
   },
   "supports": {

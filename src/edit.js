@@ -1,20 +1,23 @@
 /**
  * External dependencies
  */
-//import classnames from 'classnames';
+import classnames from 'classnames';
 
 /**
  * WordPress dependencies
  */
 import { __ } from '@wordpress/i18n';
 import {
+	BlockControls,
 	InspectorControls,
+	JustifyContentControl,
 	useBlockProps,
 } from '@wordpress/block-editor';
 import {
 	Button,
 	PanelBody,
 	RangeControl,
+	ToolbarGroup,
 	__experimentalUseCustomUnits as useCustomUnits,
 } from '@wordpress/components';
 import {
@@ -47,6 +50,7 @@ export default function Edit( {
 		rating,
 		maxRating,
 		iconSize,
+		justification,
 	} = attributes;
 
 	const onClickStarButton = ( currentRating, starClicked ) => {
@@ -71,7 +75,11 @@ export default function Edit( {
 		defaultValues: { px: 32, em: 2, rem: 2, vw: 2, vh: 4 },
 	} );
 
-	const blockProps = useBlockProps();
+	const blockProps = useBlockProps( {
+		className: classnames( {
+			[ `items-justified-${ justification }` ]: justification,
+		} )
+	} );
 
 	const iconStyles = {
 		width: iconSize,
@@ -104,6 +112,16 @@ export default function Edit( {
 
 	return (
 		<>
+			<BlockControls group="block">
+				<ToolbarGroup>
+					<JustifyContentControl
+						allowedControls={ [ 'left', 'center', 'right' ] }
+						value={ justification }
+						onChange={ ( value ) => setAttributes( { justification: value } ) }
+					/>
+				</ToolbarGroup>
+			</BlockControls>
+					
 			<InspectorControls>
 				<PanelBody title={ __( 'Settings', 'themezee-star-rating-block' ) } initialOpen={ true }>
 					<RangeControl

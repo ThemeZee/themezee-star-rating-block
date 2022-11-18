@@ -1,4 +1,9 @@
 /**
+ * External dependencies
+ */
+import classnames from 'classnames';
+
+/**
  * WordPress dependencies
  */
 import { useBlockProps } from '@wordpress/block-editor';
@@ -23,9 +28,14 @@ export default function save( { attributes } ) {
 		rating,
 		maxRating,
 		iconSize,
+		justification,
 	} = attributes;
 
-	const blockProps = useBlockProps.save();
+	const blockProps = useBlockProps.save( {
+		className: classnames( {
+			[ `items-justified-${ justification }` ]: justification,
+		} ),
+	} );
 
 	const iconStyles = {
 		width: iconSize,
