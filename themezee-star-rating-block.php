@@ -62,7 +62,7 @@ endif;
  */
 define( 'THEMEZEE_STAR_RATING_BLOCK_VERSION', '1.0' );
 define( 'THEMEZEE_STAR_RATING_BLOCK_NAME', 'ThemeZee Star Rating Block' );
-define( 'THEMEZEE_STAR_RATING_BLOCK_ID', 255875 );
+define( 'THEMEZEE_STAR_RATING_BLOCK_ID', 256134 );
 define( 'THEMEZEE_STAR_RATING_BLOCK_STORE_URL', 'https://themezee.com' );
 
 
