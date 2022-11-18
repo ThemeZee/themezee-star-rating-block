@@ -6,6 +6,7 @@ import classnames from 'classnames';
 /**
  * WordPress dependencies
  */
+import { _x, sprintf } from '@wordpress/i18n';
 import { useBlockProps } from '@wordpress/block-editor';
 import {
 	Icon,
@@ -35,6 +36,8 @@ export default function save( { attributes } ) {
 		className: classnames( {
 			[ `items-justified-${ justification }` ]: justification,
 		} ),
+		role: "img",
+		"aria-label": sprintf( _x( 'Rated %1$s out of %2$s stars.', 'aria-label for screenreaders', 'themezee-star-rating-block' ), rating, maxRating ),
 	} );
 
 	const iconStyles = {
