@@ -1,0 +1,161 @@
+# Copyright (C) 2022 ThemeZee
+# This file is distributed under the GPL-2.0-or-later.
+msgid ""
+msgstr ""
+"Project-Id-Version: ThemeZee Star Rating Block 1.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/themezee-star-rating-block\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2022-11-18T13:52:53+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.7.1\n"
+"X-Domain: themezee-star-rating-block\n"
+
+#. Plugin Name of the plugin
+msgid "ThemeZee Star Rating Block"
+msgstr ""
+
+#. Description of the plugin
+msgid "Rate something with one to five stars."
+msgstr ""
+
+#. Author of the plugin
+msgid "ThemeZee"
+msgstr ""
+
+#: includes/class-themezee-blocks-admin-page.php:37
+#: includes/class-themezee-blocks-admin-page.php:38
+#: includes/class-themezee-blocks-admin-page.php:54
+#: themezee-star-rating-block.php:51
+msgid "ThemeZee Blocks"
+msgstr ""
+
+#: includes/class-themezee-blocks-admin-page.php:83
+msgid "License Settings"
+msgstr ""
+
+#: includes/class-themezee-blocks-admin-page.php:100
+msgid "An active license key is needed to install updates and receive support."
+msgstr ""
+
+#: includes/class-themezee-star-rating-block-license-settings.php:54
+msgid "Star Rating Block"
+msgstr ""
+
+#: includes/class-themezee-star-rating-block-license-settings.php:72
+msgid "Deactivate License"
+msgstr ""
+
+#: includes/class-themezee-star-rating-block-license-settings.php:73
+msgid "Active. You are receiving updates."
+msgstr ""
+
+#: includes/class-themezee-star-rating-block-license-settings.php:76
+msgid "Activate License"
+msgstr ""
+
+#: includes/class-themezee-star-rating-block-license-settings.php:77
+msgid "Inactive. Please enter your license key."
+msgstr ""
+
+#: includes/class-themezee-star-rating-block-license-settings.php:138
+#: includes/class-themezee-star-rating-block-license-settings.php:180
+#: includes/class-themezee-star-rating-block-license-settings.php:261
+msgid "An error occurred, please try again."
+msgstr ""
+
+#. translators: the license key expiration date
+#: includes/class-themezee-star-rating-block-license-settings.php:151
+msgid "Your license key expired on %s."
+msgstr ""
+
+#: includes/class-themezee-star-rating-block-license-settings.php:158
+msgid "Your license key has been disabled."
+msgstr ""
+
+#: includes/class-themezee-star-rating-block-license-settings.php:162
+msgid "Invalid license."
+msgstr ""
+
+#: includes/class-themezee-star-rating-block-license-settings.php:167
+msgid "Your license is not active for this URL."
+msgstr ""
+
+#. translators: the plugin name
+#: includes/class-themezee-star-rating-block-license-settings.php:172
+msgid "This appears to be an invalid license key for %s."
+msgstr ""
+
+#: includes/class-themezee-star-rating-block-license-settings.php:176
+msgid "Your license key has reached its activation limit."
+msgstr ""
+
+#: includes/class-themezee-star-rating-block-license-settings.php:327
+msgid "Please enter your license key for the %1$s in order to receive updates and support. <a href=\"%2$s\">Enter License Key</a>"
+msgstr ""
+
+#. translators: the plugin name.
+#: includes/class-themezee-star-rating-block-updater.php:262
+msgid "There is a new version of %1$s available."
+msgstr ""
+
+#: includes/class-themezee-star-rating-block-updater.php:268
+msgid "Contact your network administrator to install the update."
+msgstr ""
+
+#. translators: 1. opening anchor tag, do not translate 2. the new plugin version 3. closing anchor tag, do not translate.
+#: includes/class-themezee-star-rating-block-updater.php:273
+msgid "%1$sView version %2$s details%3$s."
+msgstr ""
+
+#: includes/class-themezee-star-rating-block-updater.php:281
+msgid "%1$sView version %2$s details%3$s or %4$supdate now%5$s."
+msgstr ""
+
+#: includes/class-themezee-star-rating-block-updater.php:292
+msgid "Update now."
+msgstr ""
+
+#: includes/class-themezee-star-rating-block-updater.php:524
+msgid "You do not have permission to install plugin updates"
+msgstr ""
+
+#: includes/class-themezee-star-rating-block-updater.php:524
+msgid "Error"
+msgstr ""
+
+#: themezee-star-rating-block.php:31
+#: build/block.json
+msgctxt "block title"
+msgid "Star Rating"
+msgstr ""
+
+#: themezee-star-rating-block.php:32
+#: build/block.json
+msgctxt "block description"
+msgid "Rate something with one to five stars."
+msgstr ""
+
+#: build/index.js:1
+msgid "Settings"
+msgstr ""
+
+#: build/index.js:1
+msgid "Rating"
+msgstr ""
+
+#: build/index.js:1
+msgid "Maximum rating score"
+msgstr ""
+
+#: build/index.js:1
+msgid "Icon size"
+msgstr ""
+
+#: build/index.js:1
+msgctxt "aria-label for screenreaders"
+msgid "Rated %1$s out of %2$s stars."
+msgstr ""

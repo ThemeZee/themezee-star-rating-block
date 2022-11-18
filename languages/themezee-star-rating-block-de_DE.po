@@ -1,0 +1,167 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Star Rating Block\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/themezee-star-"
+"rating-block\n"
+"POT-Creation-Date: 2022-11-18T13:52:53+00:00\n"
+"PO-Revision-Date: 2022-11-18 14:55+0100\n"
+"Last-Translator: \n"
+"Language-Team: ThemeZee\n"
+"Language: de_DE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Poedit 3.2\n"
+
+#. Plugin Name of the plugin
+msgid "ThemeZee Star Rating Block"
+msgstr "ThemeZee Star Rating Block"
+
+#. Description of the plugin
+msgid "Rate something with one to five stars."
+msgstr "Bewerte etwas mit einem bis fünf Sternen."
+
+#. Author of the plugin
+msgid "ThemeZee"
+msgstr "ThemeZee"
+
+#: includes/class-themezee-blocks-admin-page.php:37
+#: includes/class-themezee-blocks-admin-page.php:38
+#: includes/class-themezee-blocks-admin-page.php:54
+#: themezee-star-rating-block.php:51
+msgid "ThemeZee Blocks"
+msgstr "ThemeZee Blocks"
+
+#: includes/class-themezee-blocks-admin-page.php:83
+msgid "License Settings"
+msgstr "Lizenz-Einstellungen"
+
+#: includes/class-themezee-blocks-admin-page.php:100
+msgid "An active license key is needed to install updates and receive support."
+msgstr ""
+"Ein aktiver Lizenzschlüssel ist erforderlich, um Updates zu installieren und "
+"Support zu erhalten."
+
+#: includes/class-themezee-star-rating-block-license-settings.php:54
+msgid "Star Rating Block"
+msgstr "Star Rating Block"
+
+#: includes/class-themezee-star-rating-block-license-settings.php:72
+msgid "Deactivate License"
+msgstr "Lizenz deaktivieren"
+
+#: includes/class-themezee-star-rating-block-license-settings.php:73
+msgid "Active. You are receiving updates."
+msgstr "Aktiv. Du erhältst Updates."
+
+#: includes/class-themezee-star-rating-block-license-settings.php:76
+msgid "Activate License"
+msgstr "Lizenz aktivieren"
+
+#: includes/class-themezee-star-rating-block-license-settings.php:77
+msgid "Inactive. Please enter your license key."
+msgstr "Inaktiv. Bitte gebe deinen Lizenzschlüssel ein."
+
+#: includes/class-themezee-star-rating-block-license-settings.php:138
+#: includes/class-themezee-star-rating-block-license-settings.php:180
+#: includes/class-themezee-star-rating-block-license-settings.php:261
+msgid "An error occurred, please try again."
+msgstr "Ein Fehler ist aufgetreten, bitte versuche es noch einmal."
+
+#. translators: the license key expiration date
+#: includes/class-themezee-star-rating-block-license-settings.php:151
+msgid "Your license key expired on %s."
+msgstr "Dein Lizenzschlüssel ist am %s abgelaufen."
+
+#: includes/class-themezee-star-rating-block-license-settings.php:158
+msgid "Your license key has been disabled."
+msgstr "Dein Lizenzschlüssel wurde deaktiviert."
+
+#: includes/class-themezee-star-rating-block-license-settings.php:162
+msgid "Invalid license."
+msgstr "Ungültige Lizenz."
+
+#: includes/class-themezee-star-rating-block-license-settings.php:167
+msgid "Your license is not active for this URL."
+msgstr "Deine Lizenz ist für diese URL nicht aktiviert."
+
+#. translators: the plugin name
+#: includes/class-themezee-star-rating-block-license-settings.php:172
+msgid "This appears to be an invalid license key for %s."
+msgstr "Dies scheint ein ungültiger Lizenzschlüssel für %s zu sein."
+
+#: includes/class-themezee-star-rating-block-license-settings.php:176
+msgid "Your license key has reached its activation limit."
+msgstr "Dein Lizenzschlüssel hat die Aktivierungsgrenze erreicht."
+
+#: includes/class-themezee-star-rating-block-license-settings.php:327
+msgid ""
+"Please enter your license key for the %1$s in order to receive updates and "
+"support. <a href=\"%2$s\">Enter License Key</a>"
+msgstr ""
+"Bitte aktiviere deinen Lizenzschlüssel für %1$s Add-on, um automatische "
+"Updates und Support zu erhalten. <a href=\"%2$s\">Lizenzschlüssel eingeben</"
+"a>"
+
+#. translators: the plugin name.
+#: includes/class-themezee-star-rating-block-updater.php:262
+msgid "There is a new version of %1$s available."
+msgstr "Es ist eine neue Version von %1$s verfügbar."
+
+#: includes/class-themezee-star-rating-block-updater.php:268
+msgid "Contact your network administrator to install the update."
+msgstr "Kontaktiere deinen Multisite-Admin, um das Update zu installieren."
+
+#. translators: 1. opening anchor tag, do not translate 2. the new plugin version 3. closing anchor tag, do not translate.
+#: includes/class-themezee-star-rating-block-updater.php:273
+msgid "%1$sView version %2$s details%3$s."
+msgstr "%1$sDetails zu Version %2$s ansehen%3$s."
+
+#: includes/class-themezee-star-rating-block-updater.php:281
+msgid "%1$sView version %2$s details%3$s or %4$supdate now%5$s."
+msgstr ""
+"%1$sDetails zu Version %2$s ansehen%3$s oder %4$sjetzt aktualisieren%5$s."
+
+#: includes/class-themezee-star-rating-block-updater.php:292
+msgid "Update now."
+msgstr "Jetzt aktualisieren."
+
+#: includes/class-themezee-star-rating-block-updater.php:524
+msgid "You do not have permission to install plugin updates"
+msgstr "Du hast keine Berechtigung zur Installation von Plugin Updates"
+
+#: includes/class-themezee-star-rating-block-updater.php:524
+msgid "Error"
+msgstr "Fehler"
+
+#: themezee-star-rating-block.php:31 build/block.json
+msgctxt "block title"
+msgid "Star Rating"
+msgstr "Star Rating"
+
+#: themezee-star-rating-block.php:32 build/block.json
+msgctxt "block description"
+msgid "Rate something with one to five stars."
+msgstr "Bewerte etwas mit einem bis fünf Sternen."
+
+#: build/index.js:1
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: build/index.js:1
+msgid "Rating"
+msgstr "Bewertung"
+
+#: build/index.js:1
+msgid "Maximum rating score"
+msgstr "Maximale Bewertungspunktzahl"
+
+#: build/index.js:1
+msgid "Icon size"
+msgstr "Icon-Größe"
+
+#: build/index.js:1
+msgctxt "aria-label for screenreaders"
+msgid "Rated %1$s out of %2$s stars."
+msgstr "Bewertet mit %1$s von %2$s Sternen."
