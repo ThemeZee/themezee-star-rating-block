@@ -6,7 +6,7 @@ import classnames from 'classnames';
 /**
  * WordPress dependencies
  */
-import { __ } from '@wordpress/i18n';
+import { __, _x, sprintf } from '@wordpress/i18n';
 import {
 	BlockControls,
 	InspectorControls,
@@ -20,6 +20,7 @@ import {
 	ToolbarGroup,
 	__experimentalUseCustomUnits as useCustomUnits,
 } from '@wordpress/components';
+import { useEffect } from '@wordpress/element';
 import {
 	Icon,
 	starEmpty,
@@ -52,6 +53,11 @@ export default function Edit( {
 		iconSize,
 		justification,
 	} = attributes;
+
+	// Update aria label every time rating is changed.
+	useEffect( () => {
+		setAttributes( { label: sprintf( _x( 'Rated %1$s out of %2$s stars.', 'aria-label for screenreaders', 'themezee-star-rating-block' ), rating, maxRating ) } );
+	}, [ rating, maxRating ] );
 
 	const onClickStarButton = ( currentRating, starClicked ) => {
 		// Check if the current rating was clicked again => then go down 0.5 in rating.

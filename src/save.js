@@ -30,6 +30,7 @@ export default function save( { attributes } ) {
 		maxRating,
 		iconSize,
 		justification,
+		label,
 	} = attributes;
 
 	const blockProps = useBlockProps.save( {
@@ -37,7 +38,7 @@ export default function save( { attributes } ) {
 			[ `items-justified-${ justification }` ]: justification,
 		} ),
 		role: "img",
-		"aria-label": sprintf( _x( 'Rated %1$s out of %2$s stars.', 'aria-label for screenreaders', 'themezee-star-rating-block' ), rating, maxRating ),
+		"aria-label": label ? label : sprintf( _x( 'Rated %1$s out of %2$s stars.', 'aria-label for screenreaders', 'themezee-star-rating-block' ), rating, maxRating ),
 	} );
 
 	const iconStyles = {

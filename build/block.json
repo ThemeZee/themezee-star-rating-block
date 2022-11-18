@@ -22,6 +22,9 @@
     },
     "justification": {
       "type": "string"
+    },
+    "label": {
+      "type": "string"
     }
   },
   "supports": {
