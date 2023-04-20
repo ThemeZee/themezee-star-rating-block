@@ -113,15 +113,15 @@ class ThemeZee_Star_Rating_Block_License_Settings {
 		$api_params = array(
 			'edd_action'  => 'activate_license',
 			'license'     => $license_key,
-			'item_id'     => THEMEZEE_ICON_BLOCK_ID,
-			'item_name'   => rawurlencode( THEMEZEE_ICON_BLOCK_NAME ),
+			'item_id'     => THEMEZEE_STAR_RATING_BLOCK_ID,
+			'item_name'   => rawurlencode( THEMEZEE_STAR_RATING_BLOCK_NAME ),
 			'url'         => home_url(),
 			'environment' => function_exists( 'wp_get_environment_type' ) ? wp_get_environment_type() : 'production',
 		);
 
 		// Call the custom API.
 		$response = wp_remote_post(
-			THEMEZEE_ICON_BLOCK_STORE_URL,
+			THEMEZEE_STAR_RATING_BLOCK_STORE_URL,
 			array(
 				'timeout'   => 15,
 				'sslverify' => true,
@@ -169,7 +169,7 @@ class ThemeZee_Star_Rating_Block_License_Settings {
 
 					case 'item_name_mismatch':
 						/* translators: the plugin name */
-						$message = sprintf( __( 'This appears to be an invalid license key for %s.', 'themezee-star-rating-block' ), THEMEZEE_ICON_BLOCK_NAME );
+						$message = sprintf( __( 'This appears to be an invalid license key for %s.', 'themezee-star-rating-block' ), THEMEZEE_STAR_RATING_BLOCK_NAME );
 						break;
 
 					case 'no_activations_left':
@@ -236,15 +236,15 @@ class ThemeZee_Star_Rating_Block_License_Settings {
 		$api_params = array(
 			'edd_action'  => 'deactivate_license',
 			'license'     => $license_key,
-			'item_id'     => THEMEZEE_ICON_BLOCK_ID,
-			'item_name'   => rawurlencode( THEMEZEE_ICON_BLOCK_NAME ), // the name of our product in EDD
+			'item_id'     => THEMEZEE_STAR_RATING_BLOCK_ID,
+			'item_name'   => rawurlencode( THEMEZEE_STAR_RATING_BLOCK_NAME ), // the name of our product in EDD
 			'url'         => home_url(),
 			'environment' => function_exists( 'wp_get_environment_type' ) ? wp_get_environment_type() : 'production',
 		);
 
 		// Call the custom API.
 		$response = wp_remote_post(
-			THEMEZEE_ICON_BLOCK_STORE_URL,
+			THEMEZEE_STAR_RATING_BLOCK_STORE_URL,
 			array(
 				'timeout'   => 15,
 				'sslverify' => true,

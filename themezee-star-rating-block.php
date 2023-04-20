@@ -4,7 +4,7 @@
  * Description:       Rate something with one to five stars.
  * Requires at least: 6.1
  * Requires PHP:      7.0
- * Version:           1.0
+ * Version:           1.0.1
  * Author:            ThemeZee
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
@@ -60,7 +60,7 @@ endif;
 /**
  * Set up the Plugin Updater Constants.
  */
-define( 'THEMEZEE_STAR_RATING_BLOCK_VERSION', '1.0' );
+define( 'THEMEZEE_STAR_RATING_BLOCK_VERSION', '1.0.1' );
 define( 'THEMEZEE_STAR_RATING_BLOCK_NAME', 'ThemeZee Star Rating Block' );
 define( 'THEMEZEE_STAR_RATING_BLOCK_ID', 256134 );
 define( 'THEMEZEE_STAR_RATING_BLOCK_STORE_URL', 'https://themezee.com' );
